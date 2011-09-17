@@ -2,6 +2,8 @@ source 'http://rubygems.org'
 
 gem 'bson_ext'
 gem 'devise'
+gem 'formtastic'
+gem 'inherited_resources'
 gem 'jquery-rails'
 gem 'mongoid'
 gem 'rails', '3.1.0'
