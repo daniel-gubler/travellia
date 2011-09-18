@@ -1,4 +1,6 @@
 Travellia::Application.routes.draw do
+  resources :books
+
   devise_for :admins
 
   # The priority is based upon order of creation:
