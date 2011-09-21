@@ -1,7 +1,13 @@
 Travellia::Application.routes.draw do
-  resources :books
+  
+  resources :specials
+
+  resources :skills
 
   devise_for :admins
+
+  resources :books
+  resources :jobs
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

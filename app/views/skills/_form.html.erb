@@ -1,0 +1,11 @@
+<%= semantic_form_for resource do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :key_ability, :collection => Skill::ABILITIES %>
+  <%= f.input :check_penalty, :as => :boolean %>
+  <%= f.input :untrained, :as => :boolean %>
+  <%= f.input :parent, :collection => Skill.all %>
+
+  <%= f.commit_button :label => 'Save' %>
+
+<% end %>

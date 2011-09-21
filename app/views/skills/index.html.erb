@@ -1,0 +1,25 @@
+<h1>Listing skills</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>CP</th>
+    <th>UT</th>
+  </tr>
+
+<% @skills.each do |skill| %>
+  <tr>
+    <td><%= link_to skill.name, skill %></td>
+    <td><%= skill.check_penalty %></td>
+    <td><%= skill.untrained %></td>
+    <% if admin_signed_in? %>
+    <td><%= link_to 'Edit', edit_skill_path(skill) %></td>
+    <td><%= link_to 'Destroy', skill, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Skill', new_skill_path %>
