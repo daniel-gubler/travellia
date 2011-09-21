@@ -1,0 +1,17 @@
+<h1>Listing jobs</h1>
+
+<table>
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%= link_to job.name, job %></td>
+    <% if admin_signed_in? %>
+    <td><%= link_to 'Edit', edit_job_path(job) %></td>
+    <td><%= link_to 'Destroy', job, confirm: 'Are you sure?', method: :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Job', new_job_path if admin_signed_in? %>

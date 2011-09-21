@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+
+<% if admin_signed_in? %>
+<%= link_to 'Edit', edit_job_path(resource) %> |
+<% end %>
+<%= link_to 'Back', jobs_path %>

@@ -1,0 +1,32 @@
+<%= semantic_form_for resource do |f| %>
+
+  <%= f.input :name %>
+  <%= f.input :description, :as => :text %>
+  <%= f.input :book, :as => :select, :collection => Book.find(:all) %>
+  <%= f.input :hp %>
+  <%= f.input :base_attack, :as => :select, :collection => Job::SAVES %>
+  <%= f.input :fortitude, :as => :select, :collection => Job::SAVES - [:average] %>
+  <%= f.input :reflex, :as => :select, :collection => Job::SAVES - [:average] %>
+  <%= f.input :will, :as => :select, :collection => Job::SAVES - [:average] %>
+  <%= f.input :skill_points %>
+  <%= f.input :class_skills, :as => :check_boxes, :collection => Skill.all %>
+  <div>
+  <%= f.fields_for :class_specials do |form| %>
+    <%= render 'class_special_fields', :form => form %>
+  <% end %>
+  <%= link_to_add_fields "Add Special", f, :class_specials %>
+  </div>
+  <div>
+  <%= f.fields_for :columns do |form| %>
+    <%= render 'column_fields', :form => form %>
+  <% end %>
+  <%= link_to_add_fields "Add Column", f, :columns %>
+  </div>
+  <%= f.input :psionic, :as => :boolean %>
+  <%= f.input :divine, :as => :boolean %>
+  <%= f.input :arcane, :as => :boolean %>
+  <%= f.input :prestige, :as => :boolean %>
+
+  <%= f.commit_button :label => 'Save' %>
+
+<% end %>
