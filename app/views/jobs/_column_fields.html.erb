@@ -1,11 +1,11 @@
-<div class="fields">
-  <%= form.input :name %>
-  <div>
+<div class="fields" style="display:inline-block;">
+  <%= form.input :name, :label => false, :input_html => { :class => 'short_input' } %>
+  <%= form.input :_destroy, :as => :hidden %>
+  <%= link_to_function "x", "remove_fields(this)" %>
+  <%= link_to_add_fields "+", form, :rows, 'row_container' %>
+  <div class="row_container">
   <%= form.fields_for :rows do |f| %>
     <%= render 'row_fields', :form => f %>
   <% end %>
-  <%= link_to_add_fields "Add Row", form, :rows %>
   </div>
-  <%= form.input :_destroy, :as => :hidden %>
-  <%= link_to_function "remove", "remove_fields(this)" %>
 </div>
