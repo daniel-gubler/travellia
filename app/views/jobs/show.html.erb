@@ -1,5 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+<%= resource.name %>
+
+<%= resource.description %>
+
+<table>
+<tr>
+  <% resource.columns.each do |c| %>
+  <td><%= c.name %></td>
+  <% end %>
+</tr>
+<% (0..19).each do |i| %>
+  <tr>
+    <% resource.columns.each do |c| %>
+    <td><%= c.rows[i].value %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
 <% if admin_signed_in? %>
 <%= link_to 'Edit', edit_job_path(resource) %> |
 <% end %>
