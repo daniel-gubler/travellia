@@ -10,17 +10,17 @@
   <%= f.input :will, :as => :select, :collection => Job::SAVES - [:average] %>
   <%= f.input :skill_points %>
   <%= f.input :class_skills, :as => :check_boxes, :collection => Skill.all %>
-  <div>
+  <%= link_to_add_fields "Add Special", f, :class_specials, 'special_container' %>
+  <div class="special_container">
   <%= f.fields_for :class_specials do |form| %>
     <%= render 'class_special_fields', :form => form %>
   <% end %>
-  <%= link_to_add_fields "Add Special", f, :class_specials %>
   </div>
-  <div>
+  <%= link_to_add_fields "Add Column", f, :columns, 'column_container' %>
+  <div class="column_container">
   <%= f.fields_for :columns do |form| %>
     <%= render 'column_fields', :form => form %>
   <% end %>
-  <%= link_to_add_fields "Add Column", f, :columns %>
   </div>
   <%= f.input :psionic, :as => :boolean %>
   <%= f.input :divine, :as => :boolean %>

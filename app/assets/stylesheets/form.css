@@ -1,0 +1,7 @@
+li {
+    list-style: none;
+    display:inline-block;
+}
+.short_input {
+    width: 25px;
+}

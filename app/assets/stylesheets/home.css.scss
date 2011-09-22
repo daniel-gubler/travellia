@@ -1,3 +1,14 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+* {
+  padding:0px;
+  margin:0px;
+}
+div {
+    vertical-align:top;
+}
+fieldset li {
+    width:150px;
+}
