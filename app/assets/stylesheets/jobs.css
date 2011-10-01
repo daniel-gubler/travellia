@@ -1,0 +1,14 @@
+#job_description {
+  display:inline-block;
+  width:575px;
+}
+#job_avatar {
+  display:inline-block;
+  width:600px;
+}
+#job_avatar img {
+  width:600px;
+}
+#job_table tr.d0 {
+  background-color:#DEDEDE;
+}
