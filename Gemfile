@@ -6,6 +6,7 @@ gem 'formtastic'
 gem 'inherited_resources'
 gem 'jquery-rails'
 gem 'mongoid'
+gem 'mongoid-paperclip', :require => 'mongoid_paperclip'
 gem 'rails', '3.1.0'
 
 group :assets do

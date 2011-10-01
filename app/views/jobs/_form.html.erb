@@ -3,6 +3,7 @@
   <%= f.input :name %>
   <%= f.input :description, :as => :text %>
   <%= f.input :book, :as => :select, :collection => Book.find(:all) %>
+  <%= f.input :max_level %>
   <%= f.input :hp %>
   <%= f.input :base_attack, :as => :select, :collection => Job::SAVES %>
   <%= f.input :fortitude, :as => :select, :collection => Job::SAVES - [:average] %>
@@ -26,6 +27,7 @@
   <%= f.input :divine, :as => :boolean %>
   <%= f.input :arcane, :as => :boolean %>
   <%= f.input :prestige, :as => :boolean %>
+  <%= f.input :avatar, :as => :file %>
 
   <%= f.commit_button :label => 'Save' %>
 

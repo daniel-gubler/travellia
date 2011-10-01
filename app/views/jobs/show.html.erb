@@ -1,17 +1,22 @@
+<div id="job_description">
 <p id="notice"><%= notice %></p>
 
 <%= resource.name %>
 
 <%= resource.description.html_safe %>
 
-<table>
+<table id="job_table">
 <tr>
+  <td></td>
   <% resource.columns.each do |c| %>
   <td><%= c.name %></td>
   <% end %>
 </tr>
-<% (0..19).each do |i| %>
-  <tr>
+<% alt = 0 %>
+<% 0.upto(resource.max_level-1) do |i| %>
+<% alt = 1 - alt %>
+  <tr class="d<%= 1 - alt %>">
+    <td><%= i+1 %></td>
     <% resource.columns.each do |c| %>
     <td><%= c.rows[i].value %></td>
     <% end %>
@@ -23,3 +28,7 @@
 <%= link_to 'Edit', edit_job_path(resource) %> |
 <% end %>
 <%= link_to 'Back', jobs_path %>
+</div>
+<div id="job_avatar">
+<%= image_tag resource.avatar.url %>
+</div>

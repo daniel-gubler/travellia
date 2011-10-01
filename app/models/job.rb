@@ -1,5 +1,6 @@
 class Job
   include Mongoid::Document
+  include Mongoid::Paperclip
   SAVES = [ :good, :average, :poor ]
 
   field :name
@@ -14,6 +15,13 @@ class Job
   field :divine, :type => Boolean
   field :arcane, :type => Boolean
   field :skill_points, :type => Integer
+  field :max_level, :type => Integer
+  has_mongoid_attached_file :avatar
+  # has_mongoid_attached_file :avatar,
+  # :path => ':avatar/:id/:style.:extension'
+  # :styles => {
+  #   :small => ['100x100#', :jpg]
+  # }
 
   embeds_many :columns
   belongs_to :book, :inverse_of => :jobs
