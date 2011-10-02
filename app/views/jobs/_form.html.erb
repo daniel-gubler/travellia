@@ -10,7 +10,7 @@
   <%= f.input :reflex, :as => :select, :collection => Job::SAVES - [:average] %>
   <%= f.input :will, :as => :select, :collection => Job::SAVES - [:average] %>
   <%= f.input :skill_points %>
-  <%= f.input :class_skills, :as => :check_boxes, :collection => Skill.all %>
+  <%= f.input :class_skills, :as => :check_boxes, :collection => Skill.order_by([[:name, :asc]]) %>
   <%= link_to_add_fields "Add Special", f, :class_specials, 'special_container' %>
   <div class="special_container">
   <%= f.fields_for :class_specials do |form| %>
