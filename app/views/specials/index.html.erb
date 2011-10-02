@@ -7,9 +7,9 @@
     <th></th>
   </tr>
 
-<% @specials.each do |special| %>
+<% @specials.order_by([[:name, :asc]]).each do |special| %>
   <tr>
-    <td><%= link_to 'Show', special %></td>
+    <td><%= link_to special.name, special %></td>
     <td><%= link_to 'Edit', edit_special_path(special) %></td>
     <td><%= link_to 'Destroy', special, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

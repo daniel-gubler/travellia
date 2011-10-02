@@ -1,7 +1,7 @@
 <h1>Listing jobs</h1>
 
 <table>
-<% @jobs.each do |job| %>
+<% @jobs.order_by([[:name, :asc]]).each do |job| %>
   <tr>
     <td><%= link_to job.name, job %></td>
     <% if admin_signed_in? %>

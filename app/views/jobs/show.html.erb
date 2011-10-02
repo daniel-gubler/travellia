@@ -1,21 +1,46 @@
 <div id="job_description">
 <p id="notice"><%= notice %></p>
 
-<%= resource.name %>
+<h2><%= resource.name %></h2>
 
 <%= resource.description.html_safe %>
 
-<table id="job_table">
+<table class="job_table">
+<tr>
+<th>LV</th>
+<th>BA</th>
+<th>For</th>
+<th>Ref</th>
+<th>Wil</th>
+<th>Specials</th>
+</tr>
+<% alt = 1 %>
+<% 1.upto(resource.max_level) do |i| %>
+<% alt = 1 - alt %>
+<tr class="d<%= alt %>">
+<td><%= i %></td>
+<td><%= resource.friendly_base_attack(i) %></td>
+<td><%= resource.friendly_save(resource.fortitude, i) %></td>
+<td><%= resource.friendly_save(resource.reflex, i) %></td>
+<td><%= resource.friendly_save(resource.will, i) %></td>
+<td>
+<%= resource.friendly_class_specials_for(i) %>
+</td>
+</tr>
+<% end %>
+</table>
+
+<table class="job_table">
 <tr>
   <td></td>
   <% resource.columns.each do |c| %>
   <td><%= c.name %></td>
   <% end %>
 </tr>
-<% alt = 0 %>
+<% alt = 1 %>
 <% 0.upto(resource.max_level-1) do |i| %>
 <% alt = 1 - alt %>
-  <tr class="d<%= 1 - alt %>">
+  <tr class="d<%= alt %>">
     <td><%= i+1 %></td>
     <% resource.columns.each do |c| %>
     <td><%= c.rows[i].value %></td>
